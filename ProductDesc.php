@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Description</title>
+    <h1>?php echo Good Movies?</h1>
+</head>
+<body>
+<?php
+    $movieTitle1 = "Reservoir Dogs";
+    $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
+                and enjoyable violance?";
+    ?>
+
+
+
+
+<h2>?php echo $movieTitle1; ? </h2>
+<img src="images/rDogsImg.jpg" alt="Reservoir Dogs" width="300" height="300">
+<p>?php echo $desc1; ? </p>
+</body>
+</html>
