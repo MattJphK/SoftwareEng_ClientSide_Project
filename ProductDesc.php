@@ -15,8 +15,8 @@
 
 
 
-<h2>?php echo $movieTitle1; ? </h2>
+<h2><?php echo $movieTitle1; ?> </h2>
 <img src="images/rDogsImg.jpg" alt="Reservoir Dogs" width="300" height="300">
-<p>?php echo $desc1; ? </p>
+<p><?php echo $desc1; ?> </p>
 </body>
 </html>
