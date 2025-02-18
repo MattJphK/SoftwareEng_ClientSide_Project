@@ -1,0 +1,37 @@
+.nav{
+    background-color: #B04645;
+    padding: 10px 0;
+}
+.nav ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.nav ul li {
+    margin: 0;
+    padding: 10px 20px;
+    border-right: 2px solid #332926;
+}
+
+.nav ul li:last-child {
+    border-right: none;
+}
+
+.nav ul li a {
+    text-decoration: none;
+    color: #D0B2A9;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: 0.3s;
+}
+
+.nav ul li a:hover {
+    background-color: #332727;
+    border-radius: 5px;
+}
