@@ -9,18 +9,20 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Product Description</title>
+    <title>About Us</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="css/Nav.css">
     <h1><?php echo $pgHeader; ?></h1>
 </head>
 <header>
-    <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="ProductDesc.php">Products</a></li>
-        <li><a href="">Contact</a></li>
-    </ul>
+    <div class="nav">
+        <ul>
+            <li><a href="index.php">Home</a></li>
+            <li><a href="ProductDesc.php">Products</a></li>
+            <li><a href="">Contact</a></li>
+        </ul>
+    </div>
 </header>
 <body>
 <h2><?php echo $movieTitle1; ?> </h2>
