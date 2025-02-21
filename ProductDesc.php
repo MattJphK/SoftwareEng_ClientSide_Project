@@ -25,7 +25,11 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     </div>
 </header>
 <body>
-<h2><?php echo $movieTitle1; ?> </h2>
+<div class="top">
+    <div class="logo">
+        <a href="index.php" id="leftSitting"><img class="logo_img" src="images/logo.png" alt="logo" ></a>
+    </div>
+    <ul>
 <img src="images/movieCovers/rDogsImg.jpg" alt="Reservoir Dogs" width="300" height="300">
 <p><?php echo $desc1; ?> </p>
 </body>
