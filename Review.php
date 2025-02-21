@@ -50,6 +50,6 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
             <h2>Review</h2>
             <textarea id="w3review" name="w3review" rows="25" cols="75">Tell Us What You Think :)</textarea>
             <br>
-            <input type="submit" value="Submit">
+            <input type="submit" value="Confirm">
         </form>
     </div>
