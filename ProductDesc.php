@@ -1,6 +1,6 @@
 <?php
 $pgHeader = "Movie Descriptions";
-$movieTitle1 = "Reservoir Dogs";
+$movieTitle1 = "Movie Title 1";
 $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
                 and enjoyable violance?";
 ?>
@@ -40,3 +40,8 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
         <li><a href="">Contact</a></li>
     </ul>
 </div>
+<div class="product-container">
+    <div class="movie">
+        <img src="images/movieCovers/rDogsImg.jpg" alt="Movie 1">
+        <h3><Movie Title 1></h3>
+    </div>
