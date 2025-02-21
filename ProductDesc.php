@@ -44,4 +44,5 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <div class="movie">
         <img src="images/movieCovers/rDogsImg.jpg" alt="Movie 1">
         <h3><?php echo $movieTitle1 ?></h3>
+        <h4><?php echo $desc1 ?></h4>
     </div>
