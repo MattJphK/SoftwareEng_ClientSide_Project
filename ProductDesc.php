@@ -10,6 +10,9 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
 <head>
     <meta charset="UTF-8">
     <title>Product Description</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="css/Index.css">
+    <link rel="stylesheet" href="css/Nav.css">
     <h1><?php echo $pgHeader; ?></h1>
 </head>
 <header>
