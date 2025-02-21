@@ -40,6 +40,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <ul>
         <li><a href="index.php">Home</a></li>
         <li><a href="ProductDesc.php">Products</a></li>
+        <li><a href="Review.php">Reviews</a></li>
         <li><a href="">Contact</a></li>
     </ul>
 </div>
