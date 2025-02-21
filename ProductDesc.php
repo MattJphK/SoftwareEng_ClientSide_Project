@@ -13,7 +13,11 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="css/Nav.css">
-    <h1><?php echo $pgHeader; ?></h1>
+    <div class="top">
+        <div class="logo">
+            <a href="index.php" id="leftSitting"><img class="logo_img" src="images/logo.png" alt="logo" ></a>
+        </div>
+        <ul>
 </head>
 <header>
     <div class="nav">
@@ -25,11 +29,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     </div>
 </header>
 <body>
-<div class="top">
-    <div class="logo">
-        <a href="index.php" id="leftSitting"><img class="logo_img" src="images/logo.png" alt="logo" ></a>
-    </div>
-    <ul>
+
 <img src="images/movieCovers/rDogsImg.jpg" alt="Reservoir Dogs" width="300" height="300">
 <p><?php echo $desc1; ?> </p>
 </body>
