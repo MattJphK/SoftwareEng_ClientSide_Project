@@ -9,7 +9,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>About Us</title>
+    <title>Movie Descriptions</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="css/Nav.css">
@@ -45,4 +45,6 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
         <img src="images/movieCovers/rDogsImg.jpg" alt="Movie 1">
         <h3><?php echo $movieTitle1 ?></h3>
         <h4><?php echo $desc1 ?></h4>
+        <button type="button">Book</button>
+        <button type="button">Review</button>
     </div>
