@@ -52,6 +52,4 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
             <br>
             <input type="submit" value="Submit">
         </form>
-        <button type="button">Book</button>
-        <button type="button">Review</button>
     </div>
