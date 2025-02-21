@@ -48,7 +48,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <div class="movie">
         <form action="/action_page.php">
             <h2>Review</h2>
-            <textarea id="w3review" name="w3review" rows="4" cols="50">At w3schools.com you will learn how to make a website. They offer free tutorials in all web development technologies.</textarea>
+            <textarea id="w3review" name="w3review" rows="4" cols="50">Tell Us What You Think :)</textarea>
             <br>
             <input type="submit" value="Submit">
         </form>
