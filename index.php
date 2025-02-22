@@ -38,6 +38,7 @@
         <li><a href="index.php">Home</a></li>
         <li><a href="ProductDesc.php">Products</a></li>
         <li><a href="Review.php">Reviews</a></li>
+        <li><a href="Booking.php">Booking</a></li>
         <li><a href="">Contact</a></li>
     </ul>
 </div>
