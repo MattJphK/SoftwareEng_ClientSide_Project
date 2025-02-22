@@ -51,7 +51,11 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
             <label for="cname">Name On Card</label><br>
             <input type="text" id="cname" name="cname" value="Matthew Keenan"><br>
             <label for="cardNo">Card Number</label><br>
-            <input type="text" id="cardNo" name="cardNo" value="0000 0000 000 0000"><br><br>
+            <input type="text" id="cardNo" name="cardNo" value="0000 0000 000 0000"><br>
+            <label for="eir">Eir Code</label><br>
+            <input type="text" id="eir" name="eir" value="DX XXXX"><br>
+            <label for="cvc">CVC</label><br>
+            <input type="text" id="cvc" name="cvc" value="000"><br><br>
             <input type="submit" value="Submit">
         </form>
     </div>
