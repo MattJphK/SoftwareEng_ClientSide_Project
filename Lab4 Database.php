@@ -51,7 +51,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <?php
     include 'dataconn.php';
 
-    $sql = "INSERT in booking Values (01,'24.02.25',01)";
+    $sql = "INSERT into booking Values (01,'24.02.25',01)";
 
     $result = mysqli_query($conn, $sql);
 
