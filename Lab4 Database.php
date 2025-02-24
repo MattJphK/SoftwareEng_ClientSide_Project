@@ -52,7 +52,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     include 'dataconn.php';
 
     $sql = "INSERT into booking Values (01,'24.02.25',01)";
-    $sql2 = "select * fro movieweb";
+    $sql2 = "select * from movieweb";
 
     $result = mysqli_query($conn, $sql);
 
@@ -63,10 +63,5 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
         }
     else{
         echo "Error: ".mysqli_error($conn);
-    }
-
-
-
-
-    ?>
+    } ?>
     </div>
