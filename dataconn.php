@@ -2,7 +2,7 @@
 $servername = 'localhost';
 $username = 'root';
 $password = '';
-$dbname = 'thedirectorsDB';
+$dbname = 'movieweb';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
