@@ -55,6 +55,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     $sql2 = "select * from movieweb";
 
     $result = mysqli_query($conn, $sql);
+    $result2 = mysqli_query($conn, $sql2);
 
     if($result){
         echo "Booking Successful";
