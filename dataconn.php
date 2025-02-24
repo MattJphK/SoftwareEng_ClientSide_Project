@@ -1,7 +1,7 @@
 <?php
 $servername = 'localhost';
 $username = 'root';
-$password = '';
+$password = 'Ilovetea24!';
 $dbname = 'movieweb';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
