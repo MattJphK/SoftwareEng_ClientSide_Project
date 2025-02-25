@@ -1,16 +1,7 @@
 <?php
-// Database connection
-$servername = "localhost";
-$username = "root"; // Change as needed
-$password = ""; // Change as needed
-$database = "thedirectorsdb"; // Change to your database name
 
-$conn = new mysqli($servername, $username, $password, $database);
 include 'dataconn.php';
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
+
 
 // Movie data array
 $movies = [

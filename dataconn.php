@@ -1,8 +1,8 @@
 <?php
 $servername = 'localhost';
 $username = 'root';
-$password = 'Ilovetea24!';
-$dbname = 'movieweb';
+$password = '';
+$dbname = 'thedirectorsdb';
 
 $conn = mysqli_connect($servername, $username, $password, $dbname);
 if (!$conn) {
