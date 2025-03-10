@@ -53,6 +53,7 @@ $result = $conn->query($sql);
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="css/Index.css">
     <link rel="stylesheet" href="css/Nav.css">
+
 </head>
 <body>
 <div class="top">
@@ -76,6 +77,7 @@ $result = $conn->query($sql);
         <li><a href="ProductDesc.php">Products</a></li>
         <li><a href="Review.php">Reviews</a></li>
         <li><a href="Booking.php">Booking</a></li>
+        <li><a href="User.php">User</a></li>
         <li><a href="Lab4%20Database.php">Lab4</a></li>
         <li><a href="">Contact</a></li>
     </ul>
