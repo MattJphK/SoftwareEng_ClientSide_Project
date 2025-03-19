@@ -39,7 +39,7 @@ $result = $conn->query($sql);
     </div>
     <ul>
 
-        <li><a href="index.php">Login</a></li>
+        <li><a href="login.php">Login</a></li>
         <li><a href="index.php">Register</a></li>
         <li> <form class="search-form">
                 <input type="text" placeholder="Search..." class="search-input">
