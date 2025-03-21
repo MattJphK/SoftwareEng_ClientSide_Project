@@ -69,8 +69,13 @@ $conn->close();
     <h1><?php echo htmlspecialchars($movie['title']); ?></h1>
     <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie['genre']); ?></p>
     <p><strong>Price:</strong> $<?php echo number_format($movie['ticket_price'], 2); ?></p>
+    <a href= "Booking.php">
     <button type="button">Book Now</button>
-    <button type="button">Write a Review</button>
+    </a>
+    <a href= "Review.php">
+        <button type="button">Write a Review</button>
+    </a>
+
     <br>
     <a href="index.php">Back to Movies</a>
 </div>
