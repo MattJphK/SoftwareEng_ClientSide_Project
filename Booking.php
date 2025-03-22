@@ -1,11 +1,8 @@
 <?php
-$pgHeader = "Movie Descriptions";
-$movieTitle1 = "Movie Title 1";
-$desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?";
+    $cardName = "";
+    $cardNo = 0;
+    $cvc = 0;
+
 ?>
 
 <!DOCTYPE html>
