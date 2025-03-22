@@ -1,11 +1,4 @@
 <?php
-$pgHeader = "Movie Descriptions";
-$movieTitle1 = "Movie Title 1";
-$desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?" . "One of Quentin Tarantino Best Films about a heist gone wrong. Creates a tense atmosphere
-                and enjoyable violance?";
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +42,7 @@ $desc1 = "One of Quentin Tarantino Best Films about a heist gone wrong. Creates 
     <div class="movie">
         <form action="/action_page.php">
             <h2>Review</h2>
-            <textarea id="w3review" name="w3review" rows="25" cols="75">Tell Us What You Think :)</textarea>
+            <textarea id="review" name="review" rows="25" cols="75">Tell Us What You Think :)</textarea>
             <br>
             <input type="submit" value="Confirm">
         </form>
