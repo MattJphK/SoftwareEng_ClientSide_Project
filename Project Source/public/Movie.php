@@ -36,7 +36,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <a href="Booking.php">
         <button type="button">Book Now</button>
     </a>
-    <a href="../classes/Review.php">
+    <a href="Review.php">
         <button type="button">Write a Review</button>
     </a>
     <br>
