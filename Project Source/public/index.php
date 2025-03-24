@@ -1,5 +1,6 @@
 <?php
 global $connection;
+include '../data/install.php';
 include '../data/config.php';
 include '../data/common.php';
 include '../src/DBconnect.php';
