@@ -57,5 +57,35 @@ class MovieCover extends movieClass {
 
         return $moviesWithCover;
     }
+    // Static method to fetch cover image for a specific movie by ID
+    public static function fetchCoverByMovieId($connection, $movie_id) {
+        $query = "SELECT * FROM movies WHERE movieid = :movieid";
+
+        $stmt = $connection->prepare($query);
+        $stmt->bindParam(':movieid', $movie_id, PDO::PARAM_INT);
+        $stmt->execute();
+
+        // Fetch the movie details
+        $movie = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        // Check if the movie exists
+        if (!$movie) {
+            return null;  // If no movie found, return null
+        }
+
+        // Generate the cover image filename based on the movie title
+        $coverImage = strtolower(str_replace(' ', '_', $movie['title'])) . '.jpg';
+        $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage);
+
+        // Return a MovieCover object with the cover image
+        return new MovieCover(
+            $movie['movieid'],
+            $movie['title'],
+            $movie['genre'],
+            $movie['ticket_price'],
+            $coverImage
+        );
+    }
+
 }
 ?>
