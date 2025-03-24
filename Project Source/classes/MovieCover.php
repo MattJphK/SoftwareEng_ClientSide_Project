@@ -25,12 +25,12 @@ class MovieCover extends movieClass {
     }
 
     // Static method to fetch all movies with their cover images from the database
-    public static function fetchAllMoviesWithCover($dbConnection) {
+    public static function fetchAllMoviesWithCover( $connection) {
         $moviesWithCover = [];
         $query = "SELECT * FROM movies";  // Query to fetch all movies
 
         // Prepare the query using PDO
-        $stmt = $dbConnection->prepare($query);
+        $stmt =  $connection->prepare($query);
         $stmt->execute();
 
         // Check if any movies were found

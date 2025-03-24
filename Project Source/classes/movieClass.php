@@ -1,6 +1,6 @@
 <?php
 // Movie.php
-
+ require "../src/DBconnect.php";
 class movieClass {
     private $movieid;
     private $title;
@@ -33,13 +33,13 @@ class movieClass {
         return $this->ticket_price;
     }
     // Static method to fetch movies from the database
-    public static function fetchAllMovies($dbConnection) {
+    public static function fetchAllMovies( $connection) {
         $movies = [];
         $query = "SELECT * FROM movies";  // Simple query to fetch all movies
 
         // Prepare the query using PDO
 
-        $stmt = $dbConnection->prepare($query);
+        $stmt =  $connection->prepare($query);
         $stmt->execute();  // Execute the query
 
         // Check if any movies were found
