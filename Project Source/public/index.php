@@ -16,8 +16,6 @@ $movies = MovieCover::fetchAllMoviesWithCover($connection);
         if (count($movies) > 0) {
             foreach ($movies as $movie) {
                 echo "<div class='movie'>";
-
-
                 echo "<a href='Movie.php?id=" . $movie->getMovieId() . "'>";
                 echo "<img src='covers/" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";
                 echo "</a>";
