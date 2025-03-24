@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DirectorsCut</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="stylesheet" href="css/Index.css">
-    <link rel="stylesheet" href="css/Nav.css">
-
-</head>
-<body>
 <div class="top">
     <div class="logo">
-        <a href="index.php" id="leftSitting"><img class="logo_img" src="images/logo.png" alt="logo" ></a>
+        <a href="../index.php" id="leftSitting"><img class="logo_img" src="logo.png" alt="logo" ></a>
     </div>
     <ul>
 
