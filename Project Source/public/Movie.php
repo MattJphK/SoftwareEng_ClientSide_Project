@@ -5,14 +5,11 @@ include '../src/DBconnect.php';
 include '../classes/movieClass.php';
 include '../classes/MovieCover.php';
 
-// Check if 'id' is set in the URL and is numeric
 if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $movie_id = $_GET['id'];
 
-    // Fetch the movie details and the cover image using MovieCover class
     $movie = MovieCover::fetchCoverByMovieId($connection, $movie_id);
 
-    // If no movie was found, terminate
     if (!$movie) {
         die("Movie not found.");
     }
@@ -25,7 +22,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 <?php include "template/navbar.php"; ?>
 
 <div class="movie-details">
-    <!-- Display movie cover and details -->
     <?php echo "<img src='" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";?>
 
     <h1><?php echo htmlspecialchars($movie->getTitle()); ?></h1>

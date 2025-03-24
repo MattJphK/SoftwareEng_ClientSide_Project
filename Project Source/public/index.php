@@ -17,7 +17,7 @@ $movies = MovieCover::fetchAllMoviesWithCover($connection);
             foreach ($movies as $movie) {
                 echo "<div class='movie'>";
                 echo "<a href='Movie.php?id=" . $movie->getMovieId() . "'>";
-                echo "<img src='covers/" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";
+                echo "<img src='covers/" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>"; //encapsulation
                 echo "</a>";
                 echo "<h3>" . htmlspecialchars($movie->getTitle()) . "</h3>";
                 echo "<p>Genre: " . htmlspecialchars($movie->getGenre()) . "</p>";
