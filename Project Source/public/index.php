@@ -5,12 +5,12 @@ include '../data/common.php';
 include '../src/DBconnect.php';
 include '../classes/movieClass.php';
 include '../classes/MovieCover.php';
+
 $movies = MovieCover::fetchAllMoviesWithCover($connection);
 ?>
 
 <?php include "template/header.php" ?>
 <?php include "template/navbar.php" ?>
-<div class="product-container">
     <div class="product-container">
         <?php
         if (count($movies) > 0) {

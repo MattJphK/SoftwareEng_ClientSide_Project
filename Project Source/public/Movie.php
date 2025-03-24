@@ -10,19 +10,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     // Fetch the movie details and the cover image using MovieCover class
-    $coverImage = MovieCover::fetchCoverByMovieId($connection, $movie_id);
+    $movie = MovieCover::fetchCoverByMovieId($connection, $movie_id);
 
     // If no movie was found, terminate
-    if (!$coverImage) {
+    if (!$movie) {
         die("Movie not found.");
     }
-
-    // Fetch the movie details
-    $stmt = $connection->prepare("SELECT * FROM movies WHERE movieid = :movieid");
-    $stmt->bindParam(':movieid', $movie_id, PDO::PARAM_INT);
-    $stmt->execute();
-
-    $movie = $stmt->fetch(PDO::FETCH_ASSOC);
 } else {
     die("Invalid movie selection.");
 }
@@ -33,12 +26,12 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 <div class="movie-details">
     <!-- Display movie cover and details -->
-    <?php echo "<img src='images/moviecovers/" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";?>
+    <?php echo "<img src='" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";?>
 
-    <h1><?php echo htmlspecialchars($movie['title']); ?></h1>
+    <h1><?php echo htmlspecialchars($movie->getTitle()); ?></h1>
 
-    <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie['genre']); ?></p>
-    <p><strong>Price:</strong> $<?php echo number_format($movie['ticket_price'], 2); ?></p>
+    <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie->getGenre()); ?></p>
+    <p><strong>Price:</strong> $<?php echo number_format($movie->getTicketPrice(), 2); ?></p>
 
     <a href="Booking.php">
         <button type="button">Book Now</button>

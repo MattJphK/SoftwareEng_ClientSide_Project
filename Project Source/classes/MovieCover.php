@@ -74,8 +74,7 @@ class MovieCover extends movieClass {
         }
 
         // Generate the cover image filename based on the movie title
-        $coverImage = strtolower(str_replace(' ', '_', $movie['title'])) . '.jpg';
-        $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage);
+        $coverImage = strtolower(str_replace([' ', ':'], ['_', ''], $movie['title'])) . '.jpg';
 
         // Return a MovieCover object with the cover image
         return new MovieCover(
@@ -86,6 +85,7 @@ class MovieCover extends movieClass {
             $coverImage
         );
     }
+
 
 }
 ?>
