@@ -1,6 +1,6 @@
 <div class="top">
     <div class="logo">
-        <a href="../index.php" id="leftSitting"><img class="logo_img" src="logo.png" alt="logo" ></a>
+        <a href="../index.php" id="leftSitting"><img class="logo_img" src=../images/logo.png alt="logo" ></a>
     </div>
     <ul>
 
