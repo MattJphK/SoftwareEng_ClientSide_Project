@@ -45,5 +45,8 @@
             <textarea id="review" name="review" rows="25" cols="75">Tell Us What You Think :)</textarea>
             <br>
             <input type="submit" value="Confirm">
+            <a href="index.php">Back to Home Page</a>
+
         </form>
+
     </div>

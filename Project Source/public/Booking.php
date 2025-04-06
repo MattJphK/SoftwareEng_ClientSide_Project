@@ -53,7 +53,7 @@
             <input type="text" id="eir" name="eir" value="DX XXXX"><br>
             <label for="cvc">CVC</label><br>
             <input type="text" id="cvc" name="cvc" value="000"><br><br>
-            <input type="submit" value="Cancel">
+            <button type="button" onclick="window.location.href='index.php'">Cancel</button>
             <input type="submit" value="Submit">
         </form>
     </div>
