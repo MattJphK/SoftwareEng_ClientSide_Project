@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS users (
     userid INT NOT NULL PRIMARY KEY,
     username VARCHAR(45),
     email VARCHAR(45),
-    password VARCHAR(45),
+    pass VARCHAR(45),
     age INT,
     userscore INT
     );
