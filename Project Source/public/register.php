@@ -1,11 +1,12 @@
 <?php
 if (isset($_POST['submit'])) {
     require "../data/common.php";
+    $result = false;
     try {
         require_once '../src/DBconnect.php';
         $new_user = array(
             "username" => escape($_POST['username']),
-            "password" => escape($_POST['password']),
+            "pass" => escape($_POST['password']),
             "email" => escape($_POST['email']),
             "age" => escape($_POST['age'])
         );
@@ -18,14 +19,17 @@ if (isset($_POST['submit'])) {
         );
 
         $statement = $connection->prepare($sql);
-        $statement->execute($new_user);
+        $result = $statement->execute($new_user);
     } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
 }
 
-if (isset($_POST['submit']) && $statement) {
+if (isset($_POST['submit']) && $result) {
     echo $new_user['username'] . ' successfully added';
+}
+else{
+    echo "Insert Failed";
 }
 ?>
 <?php include "template/header.php" ?>

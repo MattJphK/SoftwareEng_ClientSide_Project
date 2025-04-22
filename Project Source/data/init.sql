@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS thedirectorsdb;
 USE thedirectorsdb;
 
 CREATE TABLE IF NOT EXISTS users (
-    userid INT NOT NULL PRIMARY KEY,
+    userid INT NOT NULL PRIMARY KEY auto_increment,
     username VARCHAR(45),
     email VARCHAR(45),
     pass VARCHAR(45),
@@ -29,9 +29,13 @@ CREATE TABLE IF NOT EXISTS review (
     );
 
 CREATE TABLE IF NOT EXISTS booking (
-     bookingid INT NOT NULL PRIMARY KEY,
-    date DATE,
-     seating INT,
+     bookingid INT NOT NULL PRIMARY KEY auto_increment,
+     date DATE,
+     seating varchar(5),
+	 cardName varchar(45),
+	 cardNo varchar(25),
+	 eirCode varchar(10),
+	 cvc int,
      movieid INT,
      userid INT,
      FOREIGN KEY (movieid) REFERENCES movies(movieid) ON DELETE CASCADE,
