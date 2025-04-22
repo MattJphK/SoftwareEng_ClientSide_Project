@@ -1,10 +1,7 @@
 <?php
-/**
- * Function to query information based on
- * a parameter: in this case, location.
- *
- */
 require "../data/common.php";
+require_once "../classes/movieClass.php";
+require_once "../classes/MovieCover.php";
 require_once '../src/DBconnect.php';
 if (isset($_GET["id"])) {
     try {
@@ -14,6 +11,14 @@ if (isset($_GET["id"])) {
         $statement->bindParam(':bookingid', $bookingId, PDO::PARAM_INT);
         $statement->execute();
         $result = $statement->fetchAll();
+        $movietitle = "Unknown";
+        $moviePrice = 0.00;
+        if($result && count($result)>0) {
+            $movieId = $result[0]["movieid"];
+            $movie = MovieCover::fetchCoverByMovieId($connection, $movieId);
+            $movieTitle = $movie->getTitle();
+            $moviePrice = $movie->getTicketPrice();
+        }
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
@@ -37,6 +42,8 @@ if (isset($_GET["id"])) {
                 <th>Seat</th>
                 <th>Date</th>
                 <th>Movie ID</th>
+                <th>Movie Title</th>
+                <th>Price</th>
                 <th>User ID</th>
             </tr>
             </thead>
@@ -50,6 +57,8 @@ if (isset($_GET["id"])) {
                     <td><?php echo escape($row["seating"]); ?></td>
                     <td><?php echo escape($row["date"]); ?></td>
                     <td><?php echo escape($row["movieid"]); ?></td>
+                    <td><?php echo htmlspecialchars($movieTitle); ?></td>
+                    <td><?php echo number_format($moviePrice,2); ?></td>
                     <td><?php echo escape($row["userid"]); ?></td>
                 </tr>
             <?php } ?>

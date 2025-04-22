@@ -56,6 +56,7 @@ if(isset($_POST["submit"])){
 <div class="product-container">
     <div class="movie">
         <h2>Your Booking A Ticket for <?php echo htmlspecialchars($movie->getTitle()); ?></h2>
+        <p><strong>Ticket Price:</strong>€<?php echo number_format($movie->getTicketPrice(),2); ?></p>
         <form method="post">
             <h3>Card Details: </h3>
             <input type="hidden" name="movieid" value="<?php echo htmlspecialchars($chosenMovie)?>">
