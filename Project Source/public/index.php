@@ -12,7 +12,29 @@ $movies = MovieCover::fetchAllMoviesWithCover($connection);
 
 <?php include "template/header.php" ?>
 <?php include "template/navbar.php" ?>
+<div class="user">
+<?php
+if(isset($_SESSION['Username'])){
+    ?>
+    <form action="logout.php" method="post" name="logout_form" class="form_logout">
+    <h1>Welcome: <?php echo $_SESSION['Username']?></h1>
+    <button name="Submit" value="Logout" class="button"
+            type="submit">Logout</button>
+    </form>
+    <?php
+}
+else {
+    ?>
+    <form action="login.php" method="post" name="login_form" class="form_login">
+    <h1>Welcome: Guest</h1>
+        <button name="Submit" value="Login" class="button"
+                type="submit">Login</button>
+    <?php
+}
+?>
+</div>
     <div class="product-container">
+
         <?php
         if (count($movies) > 0) {
             foreach ($movies as $movie) {

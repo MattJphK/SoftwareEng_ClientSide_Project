@@ -1,5 +1,6 @@
 <?php require_once ('../data/config.php');
-//session_start();
+require_once ('../src/DBconnect.php');
+session_start();
 
 
 ?>
@@ -22,7 +23,7 @@
             </label>
         </div>
         <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
-        <a href="guest.php">Browse As A Guest</a>
+        <a href="index.php">Browse As A Guest</a>
 
     </form>
 
@@ -33,7 +34,7 @@
         $username = $_POST['Username'];
         $password = $_POST['Password'];
 
-        $sql = "SELECT * FROM users WHERE firstname = :username";
+        $sql = "SELECT * FROM users WHERE username = :username";
 
         $stmt = $connection->prepare($sql);
         $stmt->bindParam(':username', $username, PDO::PARAM_STR);
@@ -43,7 +44,7 @@
         if ($user && $password == $user['pass'] || $username == "Steve" && $password == "pass")
         {
             echo 'Success';
-            $_SESSION['Username'] = $user['firstname'];
+            $_SESSION['Username'] = $user['username'];
             $_SESSION['Active'] = true;
             header("location:index.php");
             exit;

@@ -1,8 +1,13 @@
 <?php
+session_start();
+if($_SESSION['Active'] == false){
+    header("location:login.php");
+    exit;
+}
+
 require "../data/common.php";
 require_once "../classes/movieClass.php";
 require_once "../classes/MovieCover.php";
-
 if(isset($_GET["id"])){
     $chosenMovie = $_GET['id'];
 }
