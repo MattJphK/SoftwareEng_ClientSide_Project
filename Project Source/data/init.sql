@@ -8,7 +8,8 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(45),
     pass VARCHAR(45),
     age INT,
-    userscore INT
+    userscore INT,
+    isAdmin BOOLEAN DEFAULT FALSE
     );
 
 CREATE TABLE IF NOT EXISTS movies (
@@ -42,7 +43,7 @@ CREATE TABLE IF NOT EXISTS booking (
     FOREIGN KEY (userid) REFERENCES users(userid) ON DELETE CASCADE
     );
 
-INSERT INTO users (userid, username, email, password, age, userscore)
+INSERT INTO users (userid, username, email, pass, age, userscore)
 SELECT 1, 'JohnDoe', 'johndoe@email.com', 'password123', 28, 100
     WHERE NOT EXISTS (SELECT 1 FROM users WHERE userid = 1);
 
