@@ -7,7 +7,16 @@ include '../src/DBconnect.php';
 include '../classes/movieClass.php';
 include '../classes/MovieCover.php';
 
-$movies = MovieCover::fetchAllMoviesWithCover($connection);
+$search = '';
+if (isset($_GET['search'])) {
+    $search = trim($_GET['search']);
+}
+
+if ($search !== '') {
+    $movies = MovieCover::searchMoviesWithCover($connection, $search);
+} else {
+    $movies = MovieCover::fetchAllMoviesWithCover($connection);
+}
 ?>
 
 <?php include "template/header.php" ?>

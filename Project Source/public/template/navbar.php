@@ -6,9 +6,15 @@
 
         <li><a href="login.php">Login</a></li>
         <li><a href="register.php">Register</a></li>
-        <li> <form class="search-form">
-                <input type="text" placeholder="Search..." class="search-input">
-                <button type="submit" class="search-btn"><img src="images/icons/loupe.png"></button>
+        <li> <form class="search-form" action="index.php" method="GET">
+                <?php
+                $searchInput = '';
+                if (isset($_GET['search'])) {
+                    $searchInput = htmlspecialchars($_GET['search']);
+                }
+                ?>
+                <input type="text" name="search" placeholder="Search..." class="search-input" value="<?php echo $searchInput; ?>">
+                <button type="submit" class="search-btn"><img src="../images/loupe.png"></button>
             </form>
         </li>
     </ul>

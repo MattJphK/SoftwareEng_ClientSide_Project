@@ -1,7 +1,7 @@
 <?php
 class ContentModeration
 {
-    private $blacklist = ["fuck", "shit", "fucker"];
+    private $blacklist = ["fuck", "shit", "fucker", "shitty", "bullshit"];
 
     public function filterWords($text)
     {
