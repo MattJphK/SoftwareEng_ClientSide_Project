@@ -3,7 +3,7 @@ CREATE DATABASE IF NOT EXISTS thedirectorsdb;
 USE thedirectorsdb;
 
 CREATE TABLE IF NOT EXISTS users (
-    userid INT NOT NULL PRIMARY KEY auto_increment,
+    userid INT auto_increment PRIMARY KEY ,
     username VARCHAR(45),
     email VARCHAR(45),
     pass VARCHAR(45),
@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS movies (
     );
 
 CREATE TABLE IF NOT EXISTS review (
-    reviewid INT NOT NULL PRIMARY KEY,
+    reviewid INT AUTO_INCREMENT PRIMARY KEY,
     review_text VARCHAR(200),
     moviescore INT,
     movieid INT,

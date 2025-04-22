@@ -106,6 +106,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     ':movieid' => $movie_id,
                     ':userid' => $userId
                 ]);
+
             }
         }
         ?>
