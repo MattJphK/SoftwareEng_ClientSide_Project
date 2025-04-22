@@ -19,7 +19,36 @@ class MovieCover extends movieClass {
     public function setCoverImage($coverImage) {
         $this->coverImage = $coverImage;
     }
+    public static function searchMoviesWithCover($connection, $search) {
+        $sql = "
+        SELECT * FROM movies
+        WHERE title LIKE :search OR genre LIKE :search
+    ";
 
+        $stmt = $connection->prepare($sql);
+        $searchParam = '%' . $search . '%';
+        $stmt->bindParam(':search', $searchParam, PDO::PARAM_STR);
+        $stmt->execute();
+
+        $movies = [];
+
+        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            // Generate local cover file name from title
+            $coverImage = strtolower(str_replace(' ', '_', $row['title']));
+            $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage);  // Remove invalid characters
+            $coverImage .= '.jpg';
+
+            $movies[] = new MovieCover(
+                $row['movieid'],
+                $row['title'],
+                $row['genre'],
+                $row['ticket_price'],
+                $coverImage
+            );
+        }
+
+        return $movies;
+    }
     public static function fetchAllMoviesWithCover( $connection) {
         $moviesWithCover = [];
         $query = "SELECT * FROM movies";

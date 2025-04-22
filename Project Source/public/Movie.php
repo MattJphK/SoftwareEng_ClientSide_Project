@@ -123,6 +123,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             </form>
             <div class="submitted-reviews">
                 <?php
+                require_once '../classes/ContentModerator.php';
+                $moderator = new ContentModeration();
+
                 $fetchReviews = $connection->prepare("SELECT * FROM review WHERE movieid = :movieid ORDER BY reviewid DESC");
                 $fetchReviews->execute([':movieid' => $movie_id]);
                 $reviews = $fetchReviews->fetchAll(PDO::FETCH_ASSOC);
@@ -130,6 +133,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 foreach ($reviews as $r) {
                     $score = htmlspecialchars($r['moviescore']);
                     $text = htmlspecialchars($r['review_text']);
+                    $filteredText = $moderator->filterWords($text);
                     if ($r['userid']) {
                         $userDisplay = "User #" . $r['userid'];
                     } else {
@@ -137,7 +141,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     }
                     echo "<div class='review-box'>";
                     echo "<strong>$userDisplay</strong> rated it <strong>$score/10</strong><br>";
-                    echo "<p>$text</p>";
+                    echo "<p>$filteredText</p>";
                     echo "</div>";
                 }
                 ?>
