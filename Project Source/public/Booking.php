@@ -1,10 +1,7 @@
 <?php
-var_dump($_GET);
-
 require "../data/common.php";
 require_once "../classes/movieClass.php";
 require_once "../classes/MovieCover.php";
-
 
 if(isset($_GET["id"])){
     $chosenMovie = $_GET['id'];
@@ -47,8 +44,6 @@ if(isset($_POST["submit"])){
             header("Location: bookingSuccess.php?id=" . $bookingId);
             exit();
         }
-
-
     } catch(PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
         $result = false;

@@ -57,7 +57,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie->getGenre()); ?></p>
             <p><strong>Price:</strong> $<?php echo number_format($movie->getTicketPrice(), 2); ?></p>
 
-            <a href="Booking.php">
+            <a href="Booking.php?id=<?php echo $movie->getMovieId(); ?>">
                 <button type="button">Book Now</button>
             </a>
             <a href="Review.php">
