@@ -66,13 +66,13 @@ if(isset($_POST["submit"])){
             <h3>Card Details: </h3>
             <input type="hidden" name="movieid" value="<?php echo htmlspecialchars($chosenMovie)?>">
             <label for="cardName">Name On Card</label><br>
-            <input type="text" id="cardName" name="cardName" value="Matthew Keenan"><br>
+            <input type="text" id="cardName" name="cardName" placeholder="Matthew Keenan"><br>
             <label for="cardNo">Card Number</label><br>
-            <input type="text" id="cardNo" name="cardNo" value="0000 0000 000 0000"><br>
+            <input type="text" id="cardNo" name="cardNo" placeholder="0000 0000 000 0000"><br>
             <label for="eirCode">Eir Code</label><br>
-            <input type="text" id="eirCode" name="eirCode" value="DX XXXX"><br>
+            <input type="text" id="eirCode" name="eirCode" placeholder="DX XXXX"><br>
             <label for="cvc">CVC</label><br>
-            <input type="text" id="cvc" name="cvc" value="000"><br>
+            <input type="text" id="cvc" name="cvc" placeholder="000"><br>
             <h3>Seat Selection:</h3>
             <label for="seating">Choose a Seat:</label><br>
             <select name="seating" id="seating">

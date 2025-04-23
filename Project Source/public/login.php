@@ -1,14 +1,13 @@
-<?php include "template/header.php" ?>
-<?php require_once ('../data/config.php');
+<?php global $connection;
+require_once ('../data/config.php');
 require_once ('../src/DBconnect.php');
 session_start();
 
 
 ?>
-
-
 <link rel="stylesheet" type="text/css" href="../css/formCSS.css">
 <title>Sign in</title>
+</head>
 
 
 <body>
@@ -21,12 +20,11 @@ session_start();
         <input name="Password" type="password" id="inputPassword" class="form-control" placeholder="Password" required>
         <div class="checkbox">
             <label>
-                <input type="checkbox" value="remember-me"> Remember me
+                <input type="checkbox" name="isAdmin" value="1"> Admin
             </label>
         </div>
         <button name="Submit" value="Login" class="button" type="submit">Sign in</button>
         <a href="index.php">Browse As A Guest</a>
-
     </form>
 
 
@@ -48,6 +46,10 @@ session_start();
             echo 'Success';
             $_SESSION['Username'] = $user['username'];
             $_SESSION['Active'] = true;
+            if(isset($_POST["isAdmin"]) && $_POST["isAdmin"] == "1"){
+                header("location:admin.php");
+                exit;
+            }
             header("location:index.php");
             exit;
         }
@@ -60,3 +62,4 @@ session_start();
 
 </div>
 </body>
+</html>
