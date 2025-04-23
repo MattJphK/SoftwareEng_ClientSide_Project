@@ -1,12 +1,14 @@
+<?php include "template/header.php" ?>
 <?php require_once ('../data/config.php');
 require_once ('../src/DBconnect.php');
 session_start();
 
 
 ?>
+
+
 <link rel="stylesheet" type="text/css" href="../css/formCSS.css">
 <title>Sign in</title>
-</head>
 
 
 <body>
@@ -58,4 +60,3 @@ session_start();
 
 </div>
 </body>
-</html>

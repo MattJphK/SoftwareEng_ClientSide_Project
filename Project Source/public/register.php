@@ -1,3 +1,4 @@
+<?php include "template/header.php" ?>
 <?php
 if (isset($_POST['submit'])) {
     require "../data/common.php";
@@ -27,14 +28,12 @@ if (isset($_POST['submit'])) {
 
 if (isset($_POST['submit']) && $result) {
     echo $new_user['username'] . ' successfully added';
-}
-else{
+} else {
     echo "Insert Failed";
 }
 ?>
-<?php include "template/header.php" ?>
 <h2>Add a user</h2>
-<form method="post">
+<form method="post" class="form-signin">
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
     <label for="password">Password</label>

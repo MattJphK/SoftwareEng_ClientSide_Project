@@ -48,7 +48,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     <!-- Left Side: Cover and Buy -->
     <div class="moviePageCover-section">
         <div class="movie">
-            <?php echo "<img src='" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>";?>
+            <?php echo "<img src='" . $movie->getCoverImage() . "' alt='" . htmlspecialchars($movie->getTitle()) . "'>"; ?>
         </div>
 
         <div class="buy-button">
@@ -64,7 +64,8 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <button type="button">Write a Review</button>
             </a>
             <a href="index.php">
-                <button type="button">Back To Movies</button></a>
+                <button type="button">Back To Movies</button>
+            </a>
         </div>
         <!-- Similar Movies Section -->
         <div class="similar-movies-section">
@@ -73,14 +74,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 <?php foreach ($relatedMovies as $related): ?>
                     <div class="movie">
                         <a href="Movie.php?id=<?php echo $related->getMovieId(); ?>">
-                            <img src="<?php echo $related->getCoverImage(); ?>" alt="<?php echo htmlspecialchars($related->getTitle()); ?>">
+                            <img src="<?php echo $related->getCoverImage(); ?>"
+                                 alt="<?php echo htmlspecialchars($related->getTitle()); ?>">
                             <p><?php echo htmlspecialchars($related->getTitle()); ?></p>
                         </a>
                     </div>
                 <?php endforeach; ?>
             </div>
         </div>
-
 
 
         <?php /////////////////////////////////////////////////////////////THE REVIEW SECTION////////////////////////////////////////////////////////////////////////////////////////////// ?>
