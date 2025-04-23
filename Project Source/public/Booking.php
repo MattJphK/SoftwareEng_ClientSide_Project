@@ -27,13 +27,7 @@ if (!$movie) {
 if (isset($_POST["submit"])) {
     try {
         require_once '../src/DBconnect.php';
-        if($_SESSION['userid'] !== Null){
-        $userId = $_SESSION['userid'];}
-        else{
-            echo "PLEASE LOGIN ";
-            die();
-        }
-
+        $userId = $_SESSION['userid'];
         $new_booking = array(
             "cardName" => escape($_POST['cardName']),
             "cardNo" => escape($_POST['cardNo']),

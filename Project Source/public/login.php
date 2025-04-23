@@ -45,7 +45,6 @@ session_start();
             echo 'Success';
             $_SESSION['Username'] = $user['username'];
             $_SESSION['userid'] = $user['userid'];
-            $_SESSION['isAdmin'] = $user['isAdmin'];
             $_SESSION['Active'] = true;
             if(isset($_POST["isAdmin"]) && $_POST["isAdmin"] == "1"){
                 header("location:admin.php");
