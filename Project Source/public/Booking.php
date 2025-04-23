@@ -1,36 +1,46 @@
 <?php
 session_start();
-if($_SESSION['Active'] == false){
+if ($_SESSION['Active'] == false) {
     header("location:login.php");
     exit;
 }
 
+
 require "../data/common.php";
 require_once "../classes/movieClass.php";
 require_once "../classes/MovieCover.php";
-if(isset($_GET["id"])){
+
+if (isset($_GET["id"])) {
     $chosenMovie = $_GET['id'];
-}
-else{
+} else {
     die("movie Not provided movie ID");
 }
 
 $movie = MovieCover::fetchCoverByMovieId($connection, $chosenMovie);
 echo "Chosen Movie ID: " . htmlspecialchars($chosenMovie) . "<br>";
-if(!$movie){
+
+if (!$movie) {
     echo "Movie not found for ID: " . htmlspecialchars($chosenMovie);
     die();
 }
-if(isset($_POST["submit"])){
+
+if (isset($_POST["submit"])) {
     try {
         require_once '../src/DBconnect.php';
+        if($_SESSION['userid'] !== Null){
+        $userId = $_SESSION['userid'];}
+        else{
+            echo "PLEASE LOGIN ";
+            die();
+        }
+
         $new_booking = array(
             "cardName" => escape($_POST['cardName']),
             "cardNo" => escape($_POST['cardNo']),
             "eirCode" => escape($_POST['eirCode']),
             "cvc" => escape($_POST['cvc']),
             "seating" => escape($_POST['seating']),
-            "userid" => 1,
+            "userid" =>  $userId,
             "movieid" => escape($_POST['movieid']),
             "date" => date('Y-m-d')
         );
@@ -49,7 +59,7 @@ if(isset($_POST["submit"])){
             header("Location: bookingSuccess.php?id=" . $bookingId);
             exit();
         }
-    } catch(PDOException $error) {
+    } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
         $result = false;
     }
@@ -61,10 +71,10 @@ if(isset($_POST["submit"])){
 <div class="product-container">
     <div class="movie">
         <h2>Your Booking A Ticket for <?php echo htmlspecialchars($movie->getTitle()); ?></h2>
-        <p><strong>Ticket Price:</strong>€<?php echo number_format($movie->getTicketPrice(),2); ?></p>
+        <p><strong>Ticket Price:</strong>€<?php echo number_format($movie->getTicketPrice(), 2); ?></p>
         <form method="post">
             <h3>Card Details: </h3>
-            <input type="hidden" name="movieid" value="<?php echo htmlspecialchars($chosenMovie)?>">
+            <input type="hidden" name="movieid" value="<?php echo htmlspecialchars($chosenMovie) ?>">
             <label for="cardName">Name On Card</label><br>
             <input type="text" id="cardName" name="cardName" placeholder="Matthew Keenan"><br>
             <label for="cardNo">Card Number</label><br>
@@ -76,12 +86,12 @@ if(isset($_POST["submit"])){
             <h3>Seat Selection:</h3>
             <label for="seating">Choose a Seat:</label><br>
             <select name="seating" id="seating">
-            <option value="A1">A1</option>
-            <option value="A2">A2</option>
-            <option value="A3">A3</option>
-            <option value="B1">B1</option>
-            <option value="B2">B2</option>
-            <option value="B3">B3</option>
+                <option value="A1">A1</option>
+                <option value="A2">A2</option>
+                <option value="A3">A3</option>
+                <option value="B1">B1</option>
+                <option value="B2">B2</option>
+                <option value="B3">B3</option>
             </select><br><br><br>
             <button type="button" onclick="window.location.href='index.php'">Cancel</button>
             <input type="submit" name="submit" value="Submit">

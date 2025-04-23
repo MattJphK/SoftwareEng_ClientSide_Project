@@ -1,0 +1,33 @@
+.profileDisplay{
+    background-color: #D0B2A9;
+    padding: 10px 0;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    text-align: left;
+}
+
+.profileDisplay img{
+
+
+}
+
+.profile-text{
+    text-decoration: none;
+    color: #332626;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    padding: 10px 15px;
+    display: inline-block;
+    transition: 0.3s;
+
+}
+
+.profileOptions ul li a:hover {
+    background-color: #A7857A;
+    border-radius: 5px;
+
+}

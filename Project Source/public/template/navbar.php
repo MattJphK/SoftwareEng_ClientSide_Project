@@ -8,7 +8,7 @@
         <div class="top-right">
             <form action="../logout.php" method="post" name="logout_form" class="logout_form">
                 <ul>
-                    <li class="text-style"><a href="" class="text-style">Welcome: <?php echo $_SESSION['Username'] ?></a></li>
+                    <li class="text-style"><a href="../Profile.php" class="text-style">Welcome: <?php echo $_SESSION['Username'] ?></a></li>
                     <li>
                         <button name="Submit" value="Logout" class="button" type="submit">Logout</button>
                     </li>

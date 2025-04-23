@@ -3,11 +3,10 @@ require_once ('../data/config.php');
 require_once ('../src/DBconnect.php');
 session_start();
 
-
+ include "template/header.php"
 ?>
 <link rel="stylesheet" type="text/css" href="../css/formCSS.css">
 <title>Sign in</title>
-</head>
 
 
 <body>
@@ -45,6 +44,8 @@ session_start();
         {
             echo 'Success';
             $_SESSION['Username'] = $user['username'];
+            $_SESSION['userid'] = $user['userid'];
+            $_SESSION['isAdmin'] = $user['isAdmin'];
             $_SESSION['Active'] = true;
             if(isset($_POST["isAdmin"]) && $_POST["isAdmin"] == "1"){
                 header("location:admin.php");
@@ -62,4 +63,3 @@ session_start();
 
 </div>
 </body>
-</html>

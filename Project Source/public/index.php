@@ -20,7 +20,15 @@ if ($search !== '') {
 ?>
 
 <?php include "template/header.php" ?>
-<?php include "template/navbar.php" ?>
+<?php if($_SESSION['isAdmin'] == True){
+    include "template/adminNav.php";
+}
+else{
+    include "template/navbar.php";
+
+}
+?>
+
 <div class="user">
 
 </div>
