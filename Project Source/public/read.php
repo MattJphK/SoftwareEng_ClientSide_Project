@@ -168,5 +168,6 @@ if (isset($_POST['movie_submit'])) {
         <input type="text" id="genre" name="genre" placeholder="Genre">
         <input type="submit" name="movie_submit" value="View Results">
     </form>
+    <a href="read2.php">Load More</a>
     <a href="admin.php">Back to home</a>
 <?php require "template/footer.php"; ?>
