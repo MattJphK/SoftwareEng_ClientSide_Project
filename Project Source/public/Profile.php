@@ -20,7 +20,11 @@ if (isset($_SESSION['Username'])) {
         echo $sql . "<br>" . $error->getMessage();
     }
 
-    $userscore = $result ? $result['userscore'] : 'N/A';
+    if ($result) {
+        $userscore = $result['userscore'];
+    } else {
+        $userscore = 'N/A';
+    }
     ?>
 
     <div class="profileDisplay">
@@ -46,9 +50,8 @@ if (isset($_GET['view'])) {
 
     if ($view === 'purchaseHistory') {
 
-        echo "<h2>Purchase History</h2>";
-        if (isset($_SESSION['Username']) && isset($_SESSION['Userid'])) {
-            $userid = $_SESSION['Userid'];
+        if (isset($_SESSION['Username']) && isset($_SESSION['userid'])) {
+            $userid = $_SESSION['userid'];
 
             try {
                 $sql = "
@@ -65,6 +68,7 @@ if (isset($_GET['view'])) {
                 $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
                 if ($bookings && count($bookings) > 0) {
+                    echo "<div class='profile-purchasehistory'>";
                     echo "<h2>Purchase History</h2>";
                     echo "<table class='purchase-history'>";
                     echo "<thead>
@@ -89,6 +93,7 @@ if (isset($_GET['view'])) {
                     }
 
                     echo "</tbody></table>";
+                    echo "</div>";
                 } else {
                     echo "<p>No purchases found.</p>";
                 }
@@ -100,7 +105,6 @@ if (isset($_GET['view'])) {
         }
 
     } elseif ($view === 'tickets') {
-        // Replace this with your real ticket display logic
         echo "<h2>My Tickets</h2>";
         echo "<p>Show active or upcoming tickets here...</p>";
     }
