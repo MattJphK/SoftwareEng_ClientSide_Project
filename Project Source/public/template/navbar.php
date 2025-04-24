@@ -44,7 +44,5 @@
 <div class="nav">
     <ul>
         <li><a href="index.php">Home</a></li>
-        <li><a href="ubitets.php">Unit Test</a></li>
-        <li><a href="movieClassTest.php">Movie Test</a></li>
     </ul>
 </div>

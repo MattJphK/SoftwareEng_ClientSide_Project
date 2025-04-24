@@ -1,5 +1,5 @@
 <?php
- require "../src/DBconnect.php";
+
 class movieClass {
     private $movieid;
     private $title;
