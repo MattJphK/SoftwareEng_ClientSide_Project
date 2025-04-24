@@ -1,8 +1,8 @@
 <?php
 
-class CoverImageGenerator
+class CoverImageTitleFilter
 {
-    public static function generate($title)
+    public static function titleFilter($title)
     {
         $title = strtolower($title);
         $coverImage = '';

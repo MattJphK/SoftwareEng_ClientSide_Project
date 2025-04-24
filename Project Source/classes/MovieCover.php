@@ -39,10 +39,7 @@ class MovieCover extends movieClass
         $movies = [];
 
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-            // Generate local cover file name from title
-            $coverImage = strtolower(str_replace(' ', '_', $row['title']));
-            $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage);  // Remove invalid characters
-            $coverImage .= '.jpg';
+            $coverImage = coverImageTitleFilter::titleFilter($row['title']);
 
             $movies[] = new MovieCover(
                 $row['movieid'],
@@ -66,9 +63,7 @@ class MovieCover extends movieClass
 
         if ($stmt->rowCount() > 0) {
             while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $coverImage = strtolower(str_replace(' ', '_', $row['title']));
-                $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage);  // Remove invalid characters
-                $coverImage .= '.jpg';
+                $coverImage = coverImageTitleFilter::titleFilter($row['title']);
                 $movieCover = new MovieCover(
                     $row['movieid'],
                     $row['title'],
@@ -98,7 +93,7 @@ class MovieCover extends movieClass
             return null;
         }
 
-        $coverImage = strtolower(str_replace([' ', ':'], ['_', ''], $movie['title'])) . '.jpg';
+        $coverImage = coverImageTitleFilter::titleFilter($movie['title']);
 
         return new MovieCover(
             $movie['movieid'],
