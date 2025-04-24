@@ -1,25 +1,31 @@
 <?php
 
 require_once 'movieClass.php';
-
-class MovieCover extends movieClass {
+require 'coverImageTitleFilter.php';
+class MovieCover extends movieClass
+{
     private $coverImage; //encapsulation of private variables
 
     // THIS CLASS FETCHES MOVIE DATA FROM INHERITENCE WHILST HAVING NO DIRECT CONTROL OVER ITS PARENT, therefore aggregation
-    public function __construct($movieid, $title, $genre, $ticket_price, $coverImage) {
+    public function __construct($movieid, $title, $genre, $ticket_price, $coverImage)
+    {
         // Call the parent constructor
         parent::__construct($movieid, $title, $genre, $ticket_price);
         $this->coverImage = $coverImage;
     }
 
-    public function getCoverImage() {
+    public function getCoverImage()
+    {
         return '../images/moviecovers/' . $this->coverImage;
     }
 
-    public function setCoverImage($coverImage) {
+    public function setCoverImage($coverImage)
+    {
         $this->coverImage = $coverImage;
     }
-    public static function searchMoviesWithCover($connection, $search) {
+
+    public static function searchMoviesWithCover($connection, $search)
+    {
         $sql = "
         SELECT * FROM movies
         WHERE title LIKE :search OR genre LIKE :search
@@ -49,11 +55,13 @@ class MovieCover extends movieClass {
 
         return $movies;
     }
-    public static function fetchAllMoviesWithCover( $connection) {
+
+    public static function fetchAllMoviesWithCover($connection)
+    {
         $moviesWithCover = [];
         $query = "SELECT * FROM movies";
 
-        $stmt =  $connection->prepare($query);
+        $stmt = $connection->prepare($query);
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
@@ -75,7 +83,9 @@ class MovieCover extends movieClass {
 
         return $moviesWithCover;
     }
-    public static function fetchCoverByMovieId($connection, $movie_id) {
+
+    public static function fetchCoverByMovieId($connection, $movie_id)
+    {
         $query = "SELECT * FROM movies WHERE movieid = :movieid";
 
         $stmt = $connection->prepare($query);
@@ -101,4 +111,5 @@ class MovieCover extends movieClass {
 
 
 }
+
 ?>

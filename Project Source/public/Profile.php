@@ -38,7 +38,6 @@ if (isset($_SESSION['Username'])) {
         <ul class>
             <li class="text-style"><a href="../Profile.php?view=purchaseHistory" class="text-style">Purchase History</a>
             </li>
-            <li class="text-style"><a href="../Profile.php?view=myTickets" class="text-style">My Tickets</a></li>
         </ul>
     </div>
     <?php
@@ -115,9 +114,6 @@ if (isset($_GET['view'])) {
 
         }
 
-    } elseif ($view === 'tickets') {
-        echo "<h2>My Tickets</h2>";
-        echo "<p>Show active or upcoming tickets here...</p>";
     }
 }
 
