@@ -20,7 +20,10 @@ if (isset($_GET['username'])) {
                     ':rating' => $rating,
                     ':username' => $username
                 ]);
+                echo '<div class="profileDisplay">';
                 echo "<p class='success'>Thanks for rating this user!</p>";
+                echo '</div>';
+
             } catch (PDOException $e) {
                 echo "<p>Error updating score: " . $e->getMessage() . "</p>";
             }
@@ -51,19 +54,22 @@ if (isset($_GET['username'])) {
         </div>
 
         <!-- Review Form -->
-        <form method="POST" class="review-user-form">
-            <label for="user_review">Rate this user (1–5):</label>
-            <select name="user_review" id="user_review" required>
-                <option value="" disabled selected>Choose rating</option>
+        <div class="profileDisplay">
+
+            <form method="POST" class="review-user-form">
+                <label for="user_review">Rate this user (1–5):</label>
+                <select name="user_review" id="user_review" required>
+                    <option value="" disabled selected>Choose rating</option>
                     <option value="1">1</option>
                     <option value="2">2</option>
                     <option value="3">3</option>
                     <option value="4">4</option>
                     <option value="5">5</option>
 
-            </select>
-            <button type="submit">Submit Rating</button>
-        </form>
+                </select>
+                <button type="submit">Submit Rating</button>
+            </form>
+        </div>
 
         <?php
     } else {
