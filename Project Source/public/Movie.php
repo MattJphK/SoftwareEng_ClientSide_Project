@@ -59,9 +59,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             <a href="Booking.php?id=<?php echo $movie->getMovieId(); ?>">
                 <button type="button">Book Now</button>
-            <a href="index.php">
-                <button type="button">Back To Movies</button>
-            </a>
+                <a href="index.php">
+                    <button type="button">Back To Movies</button>
+                </a>
         </div>
         <!-- Similar Movies Section -->
         <div class="similar-movies-section">
@@ -90,7 +90,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['review_text'], $_POST['moviescore'])) {
             $reviewText = trim($_POST['review_text']);
             $movieScore = (int)$_POST['moviescore'];
-            $userId = null;
+            $userId = $_SESSION["userid"];
 
             if ($reviewText && $movieScore >= 1 && $movieScore <= 10) {
                 $insertSql = "INSERT INTO review (review_text, moviescore, movieid, userid)
@@ -123,7 +123,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                 require_once '../classes/ContentModerator.php';
                 $moderator = new ContentModeration();
 
-                $fetchReviews = $connection->prepare("SELECT * FROM review WHERE movieid = :movieid ORDER BY reviewid DESC");
+                $fetchReviews = $connection->prepare("
+                              SELECT r.*, u.username 
+                              FROM review r 
+                              LEFT JOIN users u 
+                              ON r.userid = u.userid 
+                              WHERE r.movieid = :movieid 
+                              ORDER BY r.reviewid DESC
+                              ");
                 $fetchReviews->execute([':movieid' => $movie_id]);
                 $reviews = $fetchReviews->fetchAll(PDO::FETCH_ASSOC);
 
@@ -131,11 +138,14 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                     $score = htmlspecialchars($r['moviescore']);
                     $text = htmlspecialchars($r['review_text']);
                     $filteredText = $moderator->filterWords($text);
-                    if ($r['userid']) {
-                        $userDisplay = "User #" . $r['userid'];
+
+                    if (!empty($r['username'])) {
+                        $safeUsername = htmlspecialchars($r['username']);
+                        $userDisplay = "<a href='userProfile.php?username=" . urlencode($safeUsername) . "'>$safeUsername</a>";
                     } else {
                         $userDisplay = "Anonymous";
                     }
+
                     echo "<div class='review-box'>";
                     echo "<strong>$userDisplay</strong> rated it <strong>$score/10</strong><br>";
                     echo "<p>$filteredText</p>";

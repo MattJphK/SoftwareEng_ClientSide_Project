@@ -20,7 +20,7 @@ if (isset($_SESSION['Username'])) {
         echo $sql . "<br>" . $error->getMessage();
     }
 
-    if ($result) {
+    if ($result && !empty($result['userscore'])) {
         $userscore = $result['userscore'];
     } else {
         $userscore = 'N/A';
@@ -95,13 +95,24 @@ if (isset($_GET['view'])) {
                     echo "</tbody></table>";
                     echo "</div>";
                 } else {
+                    echo "<div class='profile-purchasehistory'>";
                     echo "<p>No purchases found.</p>";
+                    echo "</div>";
+
                 }
             } catch (PDOException $e) {
+                echo "<div class='profile-purchasehistory'>";
+
                 echo "<p>Error retrieving purchase history: " . $e->getMessage() . "</p>";
+                echo "</div>";
+
             }
         } else {
+            echo "<div class='profile-purchasehistory'>";
+
             echo "<p>Please log in to view your purchase history.</p>";
+            echo "</div>";
+
         }
 
     } elseif ($view === 'tickets') {

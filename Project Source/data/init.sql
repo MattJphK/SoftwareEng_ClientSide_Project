@@ -8,7 +8,7 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR(45),
     pass VARCHAR(45),
     age INT,
-    userscore INT,
+    userscore INT default 0,
     isAdmin BOOLEAN DEFAULT FALSE
     );
 
