@@ -59,10 +59,6 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
             <a href="Booking.php?id=<?php echo $movie->getMovieId(); ?>">
                 <button type="button">Book Now</button>
-            </a>
-            <a href="Review.php">
-                <button type="button">Write a Review</button>
-            </a>
             <a href="index.php">
                 <button type="button">Back To Movies</button>
             </a>
