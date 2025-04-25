@@ -54,9 +54,11 @@ body {
     background-color: #A7857A;
     border-radius: 5px;
 }
+
 .top ul li:last-child {
     border-right: none;
 }
+
 .search-form {
     display: flex;
     align-items: center;
@@ -75,6 +77,7 @@ body {
     border-radius: 20px;
     transition: 0.3s;
 }
+
 .search-input:Hover {
     background-color: #B04645;
     color: white;
@@ -94,8 +97,8 @@ body {
 }
 
 .product-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
     max-width: 900px;
@@ -103,6 +106,8 @@ body {
 }
 
 .movie {
+    flex: 1 1 150px;
+    min-width: 150px;
     background: #E0B3A6;
     border-radius: 10px;
     padding: 15px;
@@ -137,7 +142,7 @@ body {
     transition: 0.3s;
 }
 
-.logout_form{
+.logout_form {
     background: transparent;
     border-radius: 10px;
     padding: 15px;

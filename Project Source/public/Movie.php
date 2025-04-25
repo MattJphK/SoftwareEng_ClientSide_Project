@@ -22,8 +22,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     foreach ($result as $row) {
-        $coverImage = strtolower(str_replace(' ', '_', $row['title']));
-        $coverImage = preg_replace('/[^a-z0-9_]/', '', $coverImage) . '.jpg';
+        $coverImage = coverImageTitleFilter::titleFilter($row['title']);
 
         $relatedMovies[] = new MovieCover(
             $row['movieid'],
@@ -67,7 +66,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         <div class="similar-movies-section">
             <h2 class="textGenre">More in <?php echo htmlspecialchars($genre); ?></h2>
             <div class="scroll-container">
-                <?php foreach ($relatedMovies as $related): ?>
+                <?php foreach ($relatedMovies as $related){ ?>
                     <div class="movie">
                         <a href="Movie.php?id=<?php echo $related->getMovieId(); ?>">
                             <img src="<?php echo $related->getCoverImage(); ?>"
@@ -75,7 +74,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                             <p><?php echo htmlspecialchars($related->getTitle()); ?></p>
                         </a>
                     </div>
-                <?php endforeach; ?>
+                <?php } ?>
             </div>
         </div>
 
@@ -88,7 +87,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
         <?php
         if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['review_text'], $_POST['moviescore'])) {
-            $reviewText = trim($_POST['review_text']);
+            $reviewText = $_POST['review_text'];
             $movieScore = (int)$_POST['moviescore'];
             $userId = $_SESSION["userid"];
 
