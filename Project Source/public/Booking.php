@@ -49,9 +49,18 @@ if (isset($_POST["submit"])) {
         $result = $statement->execute($new_booking);
 
         if ($result) {
-            $bookingId = $connection->lastInsertId();
-            header("Location: bookingSuccess.php?id=" . $bookingId);
-            exit();
+            $bookingQuery = "SELECT bookingid FROM booking WHERE userid = :userid AND movieid = :movieid AND date = :date ORDER BY bookingid DESC LIMIT 1";
+            $queryStatement = $connection->prepare($bookingQuery);
+            $queryStatement->execute(["userid" => $new_booking["userid"], "movieid" => $new_booking["movieid"], "date" => date('Y-m-d')]);
+            $booking = $queryStatement->fetch(PDO::FETCH_ASSOC);
+            if ($booking) {
+                $bookingid = $booking["bookingid"];
+                header("location: bookingSuccess.php?id=" . $bookingid);
+                exit();
+            }
+            else{
+                echo "No booking found";
+            }
         }
     } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
@@ -70,13 +79,13 @@ if (isset($_POST["submit"])) {
             <h3>Card Details: </h3>
             <input type="hidden" name="movieid" value="<?php echo htmlspecialchars($chosenMovie) ?>">
             <label for="cardName">Name On Card</label><br>
-            <input type="text" id="cardName" name="cardName" placeholder="Matthew Keenan"><br>
+            <input type="text" id="cardName" name="cardName" placeholder="Matthew Keenan" required><br>
             <label for="cardNo">Card Number</label><br>
-            <input type="text" id="cardNo" name="cardNo" placeholder="0000 0000 000 0000"><br>
+            <input type="text" id="cardNo" name="cardNo" placeholder="0000 0000 000 0000" required><br>
             <label for="eirCode">Eir Code</label><br>
-            <input type="text" id="eirCode" name="eirCode" placeholder="DX XXXX"><br>
+            <input type="text" id="eirCode" name="eirCode" placeholder="DX XXXX" required><br>
             <label for="cvc">CVC</label><br>
-            <input type="text" id="cvc" name="cvc" placeholder="000"><br>
+            <input type="text" id="cvc" name="cvc" placeholder="000" required><br>
             <h3>Seat Selection:</h3>
             <label for="seating">Choose a Seat:</label><br>
             <select name="seating" id="seating">
