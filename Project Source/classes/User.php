@@ -57,28 +57,7 @@ class User
         return $this->userscore;
     }
 
-    public function display User(){
-     echo "<br>---------------------------"
-    echo "Username: ".$this->username."<br>";
-    echo "Password: ".$this->password."<br>";
-    echo "Email: ".$this->email."<br>";
-    echo "Age: ".$this->age."<br>";
-    echo "Userscore: ".$this->userscore."<br>";
-    }
 }
-    $userA = new User();
-    $userA->setUsername("userA");
-    $userA->setPassword("userA");
-    $userA->setEmail("userA@gmail.com");
-    $userA->setAge(18);
-    $userA->setUserscore(100);
-    $userA->display ();
-    $userB = new User();
-    $userB->setUsername("userB");
-    $userB->setPassword("userB");
-    $userB->setEmail("userB@gmail.com");
-    $userB->setAge(20);
-    $userB->setUserscore(50);
-    $userB->display ();
+
 
 ?>
