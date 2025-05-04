@@ -58,7 +58,7 @@ class bookingClass extends movieClass {
     public function getUserId() {
         return $this->userid;
     }
-    
+
 
 
 }
