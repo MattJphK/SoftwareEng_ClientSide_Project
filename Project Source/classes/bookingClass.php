@@ -58,29 +58,7 @@ class bookingClass extends movieClass {
     public function getUserId() {
         return $this->userid;
     }
-    public static function fetchAllMovies( $connection) {
-        $movies = [];
-        $query = "SELECT * FROM booking ";
-
-
-        $stmt =  $connection->prepare($query);
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $booking = new Booking(
-                    $row['cardName'],
-                    $row['cardNo'],
-                    $row['eirCode'],
-                    $row['cvc'],
-                    $row['seating'],
-                );
-                $bookings[] = $booking;
-            }
-        }
-
-        return $bookings;
-    }
+    
 
 
 }
