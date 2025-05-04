@@ -36,7 +36,7 @@ if ($search !== '') {
                 echo "</a>";
                 echo "<h3>" . htmlspecialchars($movie->getTitle()) . "</h3>";
                 echo "<p>Genre: " . htmlspecialchars($movie->getGenre()) . "</p>";
-                echo "<p>Price: $" . number_format($movie->getTicketPrice(), 2) . "</p>";
+                echo "<p>Price: $" . $movie->getTicketPrice() . "</p>";
                 echo "</div>";
             }
         } else {

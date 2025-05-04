@@ -5,7 +5,7 @@ include '../src/DBconnect.php';
 include '../classes/movieClass.php';
 include '../classes/MovieCover.php';
 
-if (isset($_GET['id']) && is_numeric($_GET['id'])) {
+if (isset($_GET['id'])) {
     $movie_id = $_GET['id'];
 
     $movie = MovieCover::fetchCoverByMovieId($connection, $movie_id);
@@ -19,7 +19,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         ':id' => $movie->getMovieId()
     ]);
 
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $result = $stmt->fetchAll();
 
     foreach ($result as $row) {
         $coverImage = coverImageTitleFilter::titleFilter($row['title']);
@@ -54,7 +54,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
             <h1><?php echo htmlspecialchars($movie->getTitle()); ?></h1>
 
             <p><strong>Genre:</strong> <?php echo htmlspecialchars($movie->getGenre()); ?></p>
-            <p><strong>Price:</strong> $<?php echo number_format($movie->getTicketPrice(), 2); ?></p>
+            <p><strong>Price:</strong> $<?php echo $movie->getTicketPrice(); ?></p>
 
             <a href="Booking.php?id=<?php echo $movie->getMovieId(); ?>">
                 <button type="button">Book Now</button>
@@ -86,9 +86,9 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
 
         <?php
-        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['review_text'], $_POST['moviescore'])) {
+        if (isset($_POST['review_text'])){
             $reviewText = $_POST['review_text'];
-            $movieScore = (int)$_POST['moviescore'];
+            $movieScore = $_POST['moviescore'];
             $userId = $_SESSION["userid"];
 
             if ($reviewText && $movieScore >= 1 && $movieScore <= 10) {
@@ -107,7 +107,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
         }
         ?>
 
-        <!-- Right Side: Reviews Section -->
+
         <div class="reviews-section">
             <h3 class="textGenre">Reviews</h3>
 
@@ -131,7 +131,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
                               ORDER BY r.reviewid DESC
                               ");
                 $fetchReviews->execute([':movieid' => $movie_id]);
-                $reviews = $fetchReviews->fetchAll(PDO::FETCH_ASSOC);
+                $reviews = $fetchReviews->fetchAll();
 
                 foreach ($reviews as $r) {
                     $score = htmlspecialchars($r['moviescore']);
@@ -140,7 +140,7 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
 
                     if (!empty($r['username'])) {
                         $safeUsername = htmlspecialchars($r['username']);
-                        $userDisplay = "<a href='userProfile.php?username=" . urlencode($safeUsername) . "'>$safeUsername</a>";
+                        $userDisplay = "<a href='userProfile.php?username=" . $safeUsername . "'>$safeUsername</a>";
                     } else {
                         $userDisplay = "Anonymous";
                     }

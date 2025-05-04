@@ -12,7 +12,7 @@ class ContentModeration
 
         //Split words
         foreach ($chars as $char) {
-            if (!in_array($char, [' ', '!', '.', '?', ',', ';', ':', '-', '_', '(', ')', '[', ']', '{', '}', '"', "'", "\n", "\r", "\t"])) {
+            if (!in_array($char, [' ', '!', '.', '?', ',', ';', ':', '-', '_', '(', ')', '[', ']', '{', '}', '"', "'", "\n", "\t"])) {
                 $currentWord .= $char;
             } else {
                 if ($currentWord !== '') {

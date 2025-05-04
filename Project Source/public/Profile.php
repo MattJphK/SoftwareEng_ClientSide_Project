@@ -15,7 +15,7 @@ if (isset($_SESSION['Username'])) {
         $statement = $connection->prepare($sql);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $result = $statement->fetch();
     } catch (PDOException $error) {
         echo $sql . "<br>" . $error->getMessage();
     }
@@ -64,7 +64,7 @@ if (isset($_GET['view'])) {
                 $stmt = $connection->prepare($sql);
                 $stmt->bindParam(':userid', $userid, PDO::PARAM_INT);
                 $stmt->execute();
-                $bookings = $stmt->fetchAll(PDO::FETCH_ASSOC);
+                $bookings = $stmt->fetchAll();
 
                 if ($bookings && count($bookings) > 0) {
                     echo "<div class='profile-purchasehistory'>";
@@ -87,7 +87,7 @@ if (isset($_GET['view'])) {
                         echo "<td>" . htmlspecialchars($booking['title']) . "</td>";
                         echo "<td>" . htmlspecialchars($booking['seating']) . "</td>";
                         echo "<td>" . htmlspecialchars($booking['cardName']) . "</td>";
-                        echo "<td>" . number_format($booking['ticket_price'], 2) . "</td>";
+                        echo "<td>" . $booking['ticket_price']. "</td>";
                         echo "</tr>";
                     }
 

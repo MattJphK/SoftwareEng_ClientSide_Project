@@ -3,37 +3,41 @@
     max-height: 300px;
     border-radius: 10px;
 }
+
 .container {
     display: flex;
     justify-content: space-around;
-    padding: 2rem;
+    padding: 32px;
 }
+
 .moviePageCover-section {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 .buy-button {
-    margin-top: 2rem;
+    margin-top: 32px;
     background-color: #D0B2A9;
-    padding: 0.5rem 2rem;
+    padding: 8px 32px;
     text-align: center;
     font-weight: bold;
     transition: background-color 0.3s;
     border-radius: 10px;
 }
+
 .reviews-section {
     background-color: #E0B3A4;
     width: 400px;
     height: 300px;
     overflow-y: auto;
-    padding: 1rem;
+    padding: 16px;
     display: flex;
     flex-direction: column;
-    font-size: 1rem;
+    font-size: 16px;
     scroll-behavior: smooth;
     border-radius: 8px;
-    margin-top: 2rem;
+    margin-top: 32px;
 }
 
 .scroll-container {
@@ -48,24 +52,25 @@
     min-width: 150px;
     text-align: center;
 }
+
 .movie-card img {
     width: 100%;
     height: auto;
     border-radius: 8px;
 }
+
 .textGenre {
     text-align: center;
-    font-size: 2rem;
+    font-size: 32px;
     font-weight: bold;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
     background-color: #D0B2A9;
 }
+
 .submitted-reviews .review-box {
     background-color: #f9f9f9;
     border: 4px solid #7f1d1d;
-    padding: 0.5rem;
-    margin-bottom: 0.5rem;
+    padding: 8px;
+    margin-bottom: 8px;
     border-radius: 4px;
-
-
 }

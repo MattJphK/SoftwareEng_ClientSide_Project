@@ -10,9 +10,9 @@ if (isset($_GET['username'])) {
     $result = [];
     $username = $_GET['username'];
 
-    // Handle review form submission
+
     if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['user_review'])) {
-        $rating = (int)$_POST['user_review'];
+        $rating = $_POST['user_review'];
         if ($rating >= 1 && $rating <= 5) {
             try {
                 $updateScore = $connection->prepare("UPDATE users SET userscore = userscore + :rating WHERE username = :username");
@@ -27,8 +27,6 @@ if (isset($_GET['username'])) {
             } catch (PDOException $e) {
                 echo "<p>Error updating score: " . $e->getMessage() . "</p>";
             }
-        } else {
-            echo "<p>Invalid rating value.</p>";
         }
     }
 
@@ -37,7 +35,7 @@ if (isset($_GET['username'])) {
         $statement = $connection->prepare($sql);
         $statement->bindParam(':username', $username, PDO::PARAM_STR);
         $statement->execute();
-        $result = $statement->fetch(PDO::FETCH_ASSOC);
+        $result = $statement->fetch();
     } catch (PDOException $error) {
         echo "<p>Error: " . $error->getMessage() . "</p>";
     }

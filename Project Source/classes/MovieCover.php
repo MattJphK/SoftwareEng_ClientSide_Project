@@ -38,7 +38,7 @@ class MovieCover extends movieClass
 
         $movies = [];
 
-        while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        while ($row = $stmt->fetch()) {
             $coverImage = coverImageTitleFilter::titleFilter($row['title']);
 
             $movies[] = new MovieCover(
@@ -62,7 +62,7 @@ class MovieCover extends movieClass
         $stmt->execute();
 
         if ($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
+            while ($row = $stmt->fetch()) {
                 $coverImage = coverImageTitleFilter::titleFilter($row['title']);
                 $movieCover = new MovieCover(
                     $row['movieid'],
@@ -87,7 +87,7 @@ class MovieCover extends movieClass
         $stmt->bindParam(':movieid', $movie_id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $movie = $stmt->fetch(PDO::FETCH_ASSOC);
+        $movie = $stmt->fetch();
 
         if (!$movie) {
             return null;

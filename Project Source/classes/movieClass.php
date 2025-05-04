@@ -29,27 +29,5 @@ class movieClass {
     public function getTicketPrice() {
         return $this->ticket_price;
     }
-    public static function fetchAllMovies( $connection) {
-        $movies = [];
-        $query = "SELECT * FROM movies";
-
-
-        $stmt =  $connection->prepare($query);
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
-                $movie = new movieClass(
-                    $row['movieid'],
-                    $row['title'],
-                    $row['genre'],
-                    $row['ticket_price'],
-                );
-                $movies[] = $movie;
-            }
-        }
-
-        return $movies;
-    }
 }
 ?>
